@@ -21,20 +21,20 @@ server-id=27
 重启A和B
 
 在A中授权：  
-{% highlight %}
+{% highlight sql %}
 GRANT REPLICATION SLAVE ON *.* to 'tom'@'%' identified by '000000';
 {% endhighlight %}   
 其中tom为新建的用户名，%为所有的IP都可以，推荐使用固定的IP地址，000000为密码
 
 在A中执行：
-{% highlight %}
+{% highlight sql %}
 mysql>show master status;
 {% endhighlight %}   
 
 将会看到file和Position的值，类似与"backup.000004"和225.
 
 在B中配置：
-{% highlight %}
+{% highlight sql %}
 mysql>change master to 
 	  master_host='192.168.0.26',
 	  master_user='tom',
