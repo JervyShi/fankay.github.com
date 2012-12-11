@@ -29,12 +29,9 @@ GRANT REPLICATION SLAVE ON *.* to 'tom'@'%' identified by '000000';
 在A中执行：
 {% highlight %}
 mysql>show master status;
-+------------------+----------+--------------+------------------+
-| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB |
-+------------------+----------+--------------+------------------+
-| backup.000004    |      225 |              |                  |
-+------------------+----------+--------------+------------------+
 {% endhighlight %}   
+
+将会看到file和Position的值，类似与"backup.000004"和225.
 
 在B中配置：
 {% highlight %}
